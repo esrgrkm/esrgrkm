@@ -1,0 +1,76 @@
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md);
+  color: var(--text-primary);
+  font-size: 1.2rem;
+}
+
+[data-theme="dark"] .scroll-to-top {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.scroll-to-top:hover {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: var(--shadow-lg);
+  color: var(--accent);
+}
+
+[data-theme="dark"] .scroll-to-top:hover {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .scroll-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Focus styles for accessibility */
+.scroll-to-top:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Animation for the button effect */
+.scroll-to-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), #8b5cf6);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.scroll-to-top:hover::before {
+  opacity: 0.1;
+}
+
+/* Smooth transitions for theme changes */
+.scroll-to-top {
+  transition: all 0.3s ease;
+} 
